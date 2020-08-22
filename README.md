@@ -1,4 +1,4 @@
-# Calculator_app
+# Calculator
 
 I created a new calculator using flutter.
 
