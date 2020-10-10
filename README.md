@@ -1,7 +1,5 @@
-# Calculator
+# Complex Calculator
 
-I created a new calculator using flutter.
+I created a complex calculator using flutter.
 
-The calculator can add, multiply, subtract and divide as usual.
-
-Enjoy !!
+The calculator can add, multiply, subtract and divide as usual (with complex numbers)
