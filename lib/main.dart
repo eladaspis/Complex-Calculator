@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Calculator'),
+      home: new MyHomePage(title: 'Complex Calculator'),
     );
   }
 }
@@ -42,10 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
       num2 = 0.0;
       operand = "";
 
-    } else if (buttonText == "+" || buttonText == "-" || buttonText == "/" || buttonText == "X"){
+    } else if (buttonText == "+" || buttonText == "-" || buttonText == "/" || buttonText == "X" || buttonText == "Sqrt"){
 
       num1 = double.parse(output);
-
+      print(num1);
       operand = buttonText;
 
       _output = "0";
@@ -60,7 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
         _output = _output + buttonText;
       }
 
-    } else if (buttonText == "="){
+    } 
+      if(buttonText == "Sqrt"){
+        _output = (math.sqrt(num1)).toString();
+        print(_output);
+      }
+      else if (buttonText == "="){
 
       num2 = double.parse(output);
 
@@ -76,7 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
       if(operand == "/"){
         _output = (num1 / num2).toString();
       }
-
       num1 = 0.0;
       num2 = 0.0;
       operand = "";
@@ -126,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
             new Container(
               alignment: Alignment.centerRight,
               padding: new EdgeInsets.symmetric(
-                vertical: 24.0,
+                vertical: 30.0,
                 horizontal: 12.0
               ),
               child: new Text(output, style: new TextStyle(
@@ -138,8 +143,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Divider(),
             ),
             
-
             new Column(children: [
+              new Row(children: [
+                buildButton("i"),
+                buildButton("Sqrt"),
+              ]),
+
               new Row(children: [
                 buildButton("7"),
                 buildButton("8"),
